@@ -25,24 +25,24 @@ public class Student_test {
     @Test
     public void test_update_student_score()
     {Student s=new Student();
-        s.setAccountName("Ahmed");
+    s.setAccountName("Ahmed");
     s.setScore(3.5);
     StudentDBController st=new StudentDBController();
     st.addAccount(s);
     st.updateScore("Ahmed",2.5);
-        assertEquals(5.0, s.getScore());
+    assertEquals(6.0, s.getScore());
     }
     
     @Test
     public void test_update_student_score2()
     {
-        Student s=new Student();
-        s.setAccountName("Ahmed");
+    Student s=new Student();
+    s.setAccountName("Ahmed");
     s.setScore(3.5);
     StudentDBController st=new StudentDBController();
     st.addAccount(s);
     st.updateScore("Ahmed",2.5);
-        assertEquals(5.0001, s.getScore());
+        assertEquals(6.0001, s.getScore());
     } 
     
     public Student_test() {

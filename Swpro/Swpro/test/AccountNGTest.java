@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import Three.Game;
 import Three.GameDBController;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -31,7 +32,7 @@ public class AccountNGTest {
    {Game g = new Game();
    Game g2 = new Game();
    GameDBController g3 = new GameDBController();
-    Vector<Game>subgame=new Vector<Game>();
+ ArrayList<Game>subgame=new ArrayList<Game>();
    // Vector<Game>subgame2=new Vector<Game>();
     g.setName ("Math1");
    g.setCategorie ("Math");
@@ -41,14 +42,17 @@ public class AccountNGTest {
    g2.setOwner ("Ahmed");
    g3.addGame(g);
    g3.addGame(g2);
-       assertEquals(subgame, g3.getGames("Math"));
+    subgame.add(g);
+   subgame.add(g2);
+       System.err.println("SUb Size"+subgame.size());
+   assertEquals( g3.getGames("Math"),subgame);
    }
 @Test//test to fail 
    public void test_Get_games2()
    {Game g = new Game();
    Game g2 = new Game();
    GameDBController g3 = new GameDBController();
-    Vector<Game>subgame=new Vector<Game>();
+   ArrayList<Game>subgame=new ArrayList<Game>();
    // Vector<Game>subgame2=new Vector<Game>();
     g.setName ("Math1");
    g.setCategorie ("Math");
@@ -58,7 +62,9 @@ public class AccountNGTest {
    g2.setOwner ("Ahmed");
    g3.addGame(g);
    g3.addGame(g2);
-       assertEquals(subgame, g3.getGames("math"));
+   subgame.add(g);
+   subgame.add(g2);
+   assertEquals(subgame, g3.getGames("mAth"));
    }
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -79,118 +85,5 @@ public class AccountNGTest {
     /**
      * Test of getAccountName method, of class Account.
      */
-    @Test
-    public void testGetAccountName() {
-        System.out.println("getAccountName");
-        Account instance = new Account();
-        String expResult = "";
-        String result = instance.getAccountName();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setAccountName method, of class Account.
-     */
-    @Test
-    public void testSetAccountName() {
-        System.out.println("setAccountName");
-        String accountName = "";
-        Account instance = new Account();
-        instance.setAccountName(accountName);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPassword method, of class Account.
-     */
-    @Test
-    public void testGetPassword() {
-        System.out.println("getPassword");
-        Account instance = new Account();
-        String expResult = "";
-        String result = instance.getPassword();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setPassword method, of class Account.
-     */
-    @Test
-    public void testSetPassword() {
-        System.out.println("setPassword");
-        String password = "";
-        Account instance = new Account();
-        instance.setPassword(password);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getBirthdate method, of class Account.
-     */
-    @Test
-    public void testGetBirthdate() {
-        System.out.println("getBirthdate");
-        Account instance = new Account();
-        String expResult = "";
-        String result = instance.getBirthdate();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setBirthdate method, of class Account.
-     */
-    @Test
-    public void testSetBirthdate() {
-        System.out.println("setBirthdate");
-        String birthdate = "";
-        Account instance = new Account();
-        instance.setBirthdate(birthdate);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of register method, of class Account.
-     */
-    @Test
-    public void testRegister() {
-        System.out.println("register");
-        Account instance = new Account();
-        instance.register();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of showProfile method, of class Account.
-     */
-    @Test
-    public void testShowProfile() {
-        System.out.println("showProfile");
-        Account instance = new Account();
-        instance.showProfile();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of showMore method, of class Account.
-     */
-    @Test
-    public void testShowMore() {
-        System.out.println("showMore");
-        Account instance = new Account();
-        instance.showMore();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+   
 }
